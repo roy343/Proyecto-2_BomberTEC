@@ -48,6 +48,18 @@ public class LevelGeneration : MonoBehaviour
         {
             terrainMap = genTilePos(terrainMap);
         }
+
+        for(int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                if(terrainMap[x,y] == 1)
+                {
+                    topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);
+                    botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
+                }
+            }
+        }
     }
 
     public int[,] genTilePos(int[,] oldMap)
@@ -103,14 +115,22 @@ public class LevelGeneration : MonoBehaviour
             }
         }
     }
-    void Start()
-    {       
-    }
+    //void Start()
+    //{       
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            doSim(numR);
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            clearMap(true);
+        }
     }
 
     public void clearMap(bool complete)
