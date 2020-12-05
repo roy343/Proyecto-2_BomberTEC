@@ -1646,10 +1646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e9514ede497de4fb0b74d38b24a0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iniChance: 19
-  birthLimit: 2
-  deathLimit: 4
-  numR: 7
+  iniChance: 25
+  birthLimit: 3
+  deathLimit: 2
+  numR: 1
   tmapSize: {x: 20, y: 10, z: 0}
   topMap: {fileID: 208868161}
   botMap: {fileID: 803991449}
@@ -6764,7 +6764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822406080}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 803991447}

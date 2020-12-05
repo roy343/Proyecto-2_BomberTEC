@@ -45,7 +45,7 @@ public class LevelGeneration : MonoBehaviour
             initPos();
         }
 
-        for(int i=0; i<numR; i++)
+        for(int i = 0; i < numR; i++)
         {
             terrainMap = genTilePos(terrainMap);
         }
@@ -69,15 +69,15 @@ public class LevelGeneration : MonoBehaviour
         int neighb;
         BoundsInt myB = new BoundsInt(-1, -1, 0, 3, 3, 1);
 
-        for(int x=0; x<width; x++)
+        for(int x = 0; x < width; x++)
         {
-            for (int y = 0; y < width; y++)
+            for (int y = 0; y < height; y++)
             {
                 neighb = 0;
                 foreach(var b in myB.allPositionsWithin)
                 {
                     if (b.x == 0 && b.y == 0) continue;
-                    if (x+b.x >= 0 && x+b.x < width && y+b.y < height)
+                    if (x + b.x >= 0 && x+b.x < width && y+b.y >= 0 && y+b.y < height)
                     {
                         neighb += oldMap[x + b.x, y + b.y];
                     }
