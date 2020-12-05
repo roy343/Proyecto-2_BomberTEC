@@ -18,6 +18,7 @@ public class LevelGeneration : MonoBehaviour
 
     [Range(1, 10)]
     public int numR;
+
     private int count = 0;
 
     private int[,] terrainMap;
@@ -115,9 +116,6 @@ public class LevelGeneration : MonoBehaviour
             }
         }
     }
-    //void Start()
-    //{       
-    //}
 
     // Update is called once per frame
     void Update()
@@ -136,6 +134,7 @@ public class LevelGeneration : MonoBehaviour
     public void clearMap(bool complete)
     {
         topMap.ClearAllTiles();
+
         botMap.ClearAllTiles();
 
         if (complete)
