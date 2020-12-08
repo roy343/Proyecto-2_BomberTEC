@@ -6609,8 +6609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6838e68cd7639314896c8554c77b7aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  Bomb: {fileID: 0}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
 --- !u!4 &1614957738
 Transform:
   m_ObjectHideFlags: 0
@@ -6916,6 +6916,7 @@ GameObject:
   - component: {fileID: 1970236078}
   - component: {fileID: 1970236079}
   - component: {fileID: 1970236080}
+  - component: {fileID: 1970236081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7069,3 +7070,17 @@ MonoBehaviour:
   - {fileID: 324181693}
   - {fileID: 994674462}
   life: 3
+--- !u!114 &1970236081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970236074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5365e843dfbed204a9fdaf833ec281b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 0}
+  bomb: {fileID: 0}

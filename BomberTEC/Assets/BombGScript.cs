@@ -9,21 +9,18 @@ public class BombGScript : MonoBehaviour
 
     public GameObject Bomb;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 position = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-            Vector3Int cell = tilemap.WorldToCell(position);
-            Vector3 center = tilemap.GetCellCenterWorld(cell);
-        }
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("The bomb has beem planted");
+            Vector3 position = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+            Vector3Int cell = tilemap.WorldToCell(position);
+            Vector3 center = tilemap.GetCellCenterWorld(cell);
+
+            Instantiate(Bomb, center, Quaternion.identity);
+        }
     }
 }
