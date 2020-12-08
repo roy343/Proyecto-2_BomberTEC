@@ -7,10 +7,10 @@ public class PlayerScript : MonoBehaviour
 {
     public Tilemap tilemap;
 
-    public GameObject bomb;
+    public GameObject Bomb;
     // Update is called once per frame
     void Update()
     {
-     
+        
     }
 }
