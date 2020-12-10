@@ -1,75 +1,63 @@
 using System;
 using Example.Genetics;
 using Example.Properties;
+using System.Collections.Generic;
 namespace Example {
     public class Poblacion {
-        private LinkedList people = new LinkedList();
+        public LinkedList people = new LinkedList();
         private Bomberman BestIndividuo;
         Conversiones help = new Conversiones();
         Random rnd = new Random();
-        private int posicionBest = 0;
-        public Poblacion() {}
+        public int posicionBest;
+        public Poblacion() {
+            generarPoblacion();
+        }
         
-        private void generarPoblacion() {
-            if (people.cont == 0) {
-                for (int i = 0; i < 7; i++) {
-                    Bomberman player = new Bomberman($"P{i}");
-                    people.addData(player);
-                }
+        public void generarPoblacion(){ 
+            for (int i = 0; i < 7; i++) {
+                Bomberman player = new Bomberman($"P{i}");
+                people.addData(player);
             }
+            posicionBest = 0;
+            BestIndividuo = people.getData(0);
         }
 
-        private bool sinMejora()
-        {
-            for (int j = 0; j < people.cont; j++)
-            {
-                Bomberman temp = people.getData(j);
+        private bool sinMejora() {
+            Bomberman temp;
+            for (int j = 0; j < people.cont; j++) {
+                temp = people.getData(j);
                 if (fitness(temp) != 0)
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
-
-        private int fitness(Bomberman temp)
-        {
+        private int fitness(Bomberman temp) {
             int rendimiento = (temp.hitsPlayer + temp.closehit) / 2;
             return rendimiento;
         }
-
-        private void seleccion()
-        {
+        private void seleccion() {
+            posicionBest = 0;
             BestIndividuo = people.getData(0);
-            if (!sinMejora())
-            {
-                posicionBest = rnd.Next(0, 7);
+            if(sinMejora()) {
+                posicionBest = rnd.Next(0, people.cont);
                 BestIndividuo = people.getData(posicionBest);
-            }
-            else
-            {
-                for (int j = 0; j < people.cont; j++)
-                {
-                    if (people.getData(j).life != 0)
-                    {
-                        Bomberman temp = people.getData(j);
-                        if (fitness(temp) > fitness(BestIndividuo))
-                        {
-                            BestIndividuo = temp;
-                            posicionBest = j;
-                        }
+            }else{
+                for (int j = 0; j < people.cont; j++) {
+                    Bomberman temp = people.getData(j);
+                    if (fitness(temp) > fitness(BestIndividuo)) {
+                        BestIndividuo = temp;
+                        posicionBest = j; 
                     }
                 }
             }
         }
 
-        private void Crossover()
-        {
+        private void Crossover() {
             //Todos los arrays son de 7 bits, pues es el numero maximo posible
-            for (int i = 0; i < people.cont; i++)
-            {
-                if (posicionBest != i)
-                {
+            for (int i = 0; i < people.cont; i++) {
+                if (posicionBest != i){
                     Bomberman temp = people.getData(i);
                     int FPW = help.auxCruze(BestIndividuo.getFindPowerUp(), temp.getFindPowerUp());
                     people.getData(i).setFindPowerUp(FPW);
@@ -91,10 +79,8 @@ namespace Example {
             {
                 for (int i = 0; i < people.cont; i++)
                 {
-                    if (posicionBest != i)
-                    {
+                    if (posicionBest != i) {
                         Bomberman temp = people.getData(i);
-
                         int FPW = help.auxMutacion(temp.getFindPowerUp());
                         people.getData(i).setFindPowerUp(FPW);
 
@@ -137,22 +123,24 @@ namespace Example {
                 }
             }
         }
+
         private void Reajustar() {
             for (int i = 0; i < people.cont; i++) {
                 people.getData(i).reajustarAcciones();
             }
         }
+        public void printAccion(){
+            for (int i = 0; i < people.cont; i++){//$"P{i}"
+                people.getData(i).printAccion();
+            }
+        }
+
         public void AG(){
-            generarPoblacion();
-            people.getData(0).hitsPlayer++;
-            people.getData(0).printAccion();
-            people.getData(1).printAccion();
             seleccion();
             Crossover();
             Multacion();
             Inversion();
             Reajustar();
-            people.getData(1).printAccion();
         }
     }
 }

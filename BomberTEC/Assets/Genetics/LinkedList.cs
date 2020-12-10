@@ -33,16 +33,24 @@ namespace Example.Properties
             }
             return null;
         }
-        public void deleteData(int index){
-            Nodo temp = first;
-            for (int i = 0; i < cont; i++){
-                if (i==index) {
-                    temp.data = null;
-                    cont--;
-                }
-                temp=temp.Next;
+        public void deleteNode(string id) {
+            Nodo current = first;
+            Nodo temp = null;
+            if(current != null && current.data.pID == id){
+                first = current.Next;
+                cont--;
+                return;
             }
-        }
+            while(current != null && current.data.pID != id){
+                temp = current;
+                current = current.Next;
+            }if(current == null) {
+                cont--;
+                return;
+            }
+            cont--;
+            temp.Next = current.Next;
+        } 
     }
     public class Nodo {
         public Bomberman data;

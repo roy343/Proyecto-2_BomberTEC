@@ -4,6 +4,8 @@ namespace Example
 {
     public class Bomberman {
         //Acciones
+        Random rnd = new Random();
+        
         private int hide;
         private int putBomb;
         private int findPowerUp;
@@ -15,6 +17,7 @@ namespace Example
         
         //Estadisticas del personaje
         public string pID;
+        public int posicion;
         public int life;
         public int speed;
         public int dodge;
@@ -29,14 +32,12 @@ namespace Example
         }
 
         private void setEstadisticas() {
-            Random rnd = new Random();
             this.life = rnd.Next(0, 5);
             this.speed = rnd.Next(0, 5);
             this.dodge = rnd.Next(0, 5);
             this.radioExplo = rnd.Next(0, 5);
         }
         private void setAcciones() {
-            Random rnd = new Random();
             this.hide = rnd.Next(0,25);
             this.findEnemy = rnd.Next(0, 25);
             this.findPowerUp = rnd.Next(0, 25);
@@ -76,6 +77,7 @@ namespace Example
 
         public void printAccion(){
             Console.WriteLine("\n");
+            Console.WriteLine("ID: "+pID);
             Console.WriteLine("Hide: "+hide.ToString());
             Console.WriteLine("Find Enemy: "+findEnemy.ToString());
             Console.WriteLine("Find power up:"+findPowerUp.ToString());
@@ -114,19 +116,18 @@ namespace Example
         {
             return findEnemy + hide + putBomb + findPowerUp;
         }
+
+        public int getAccion(){
+            int probabilidad = rnd.Next(0, 100);
+            if (probabilidad<hide){//1 Para hide
+                return 1;
+            }else if (probabilidad<hide+findPowerUp){// 2 Para Find power up 
+                return 2;
+            }else if (probabilidad < hide + findPowerUp + findEnemy) {// 3 Para find enemy
+                return 3;
+            }else{//5 Para Put bomb
+                return 4;
+            }
+        }
     }
 }
-
-//
-// double val = (double)rand() / RAND_MAX;
-//
-// int random;
-// if (val < p_1)
-//     random = n_1;
-// else if (val < p_1 + p_2)
-//     random = n_2;
-// else if (val < p_1 + p_2 + p_3)
-//     random = n_3;
-// else
-//     random = n_4;
-
