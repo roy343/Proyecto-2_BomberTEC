@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 
 
-public class LevelGeneration : MonoBehaviour
+public class LevelGeneration : MonoBehaviour //Se definen las probabilidades iniciales (esto define que tan poblado estara el mapa)
 {
     [Range(0, 100)]
-    public int iniChance;
+    public int iniChance; 
 
     [Range(1, 8)]
     public int birthLimit;
@@ -17,53 +17,54 @@ public class LevelGeneration : MonoBehaviour
     public int deathLimit;
 
     [Range(1, 10)]
+
     public int numR;
 
-    private int count = 0;
+    private int[,] terrainMap; //Matriz que representa el mapa. Los 1 y 0 en X y Y representa que el tile esta "vivo" o "activo" lo que le dice al programa que ponga un tile
 
-    private int[,] terrainMap;
-    public Vector3Int tmapSize;
+    public Vector3Int tmapSize; // Tamano del mapa
 
 
-    public Tilemap topMap;
+    public Tilemap topMap;//Tilemaps del piso y las paredes
     public Tilemap botMap;
+
     public Tile topTile;
     public Tile botTile;
 
-    int width;
+    int width;//Largo y ancho del mapa
     int height;
 
-    public void doSim(int numR)
+    public void doSim(int numR)//Inicializa el mapa
     {
         clearMap(false);
         width = tmapSize.x;
         height = tmapSize.y;
         
-        if (terrainMap == null)
+        if (terrainMap == null)//Crea una nueva matriz para el mapa
         {
             terrainMap = new int[width, height];
-            initPos();
+            initPos();//Llama al encargado de dar 1 y 0 a la matriz
         }
 
         for(int i = 0; i < numR; i++)
         {
-            terrainMap = genTilePos(terrainMap);
+            terrainMap = genTilePos(terrainMap);// Algoritmo para generar mapas mas organicos
         }
 
-        for(int x = 0; x < width; x++)
+        for(int x = 0; x < width; x++)//Loop que recorre la matriz
         {
             for (int y = 0; y < height; y++)
             {
                 if(terrainMap[x,y] == 1)
                 {
-                    topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);
+                    topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);//Le da tiles al mapa
                     botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
                 }
             }
         }
     }
 
-    public int[,] genTilePos(int[,] oldMap)
+    public int[,] genTilePos(int[,] oldMap)// Este algoritmo modifica el terrainMap para darle una apariencia mas organica
     {
         int[,] newMap = new int[width, height];
         int neighb;
@@ -106,32 +107,30 @@ public class LevelGeneration : MonoBehaviour
         }
         return newMap;
     }
-    public void initPos()
+    public void initPos()//Recorre terrainMap y le asigna un 1 o un 0 a cada posicion de la matriz
     {
         for(int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0;
+                terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0; // Asigna los 1 y 0 de forma aleatoria
             }
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))//Crea el mapa con click izquierdo
         {
             doSim(numR);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))//Lo destruye con click derecho
         {
             clearMap(true);
         }
     }
 
-    public void clearMap(bool complete)
+    public void clearMap(bool complete)//Funcion para borrar el mapa
     {
         topMap.ClearAllTiles();
 
