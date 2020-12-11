@@ -1,18 +1,24 @@
 using System;
 using Example.Genetics;
 using Example.Properties;
-using System.Collections.Generic;
 namespace Example {
     public class Poblacion {
+        ///<summary>Lista que almacena todos los Bomberman</summary>>
         public LinkedList people = new LinkedList();
+        /// <summary>Toma al mejor Bomberman</summary>>
         private Bomberman BestIndividuo;
-        Conversiones help = new Conversiones();
-        Random rnd = new Random();
+        /// <summary> Clase que ayuda a comvertir los int a int[]</summary>>
+        private Conversiones help = new Conversiones();
+        ///<summary>Clase que me genera un numero aleatorio</summary>>
+        private Random rnd = new Random();
+        ///<summary>La posicion en la lista, del mejor bomberman</summary>
         public int posicionBest;
         public Poblacion() {
             generarPoblacion();
         }
-        
+        /// <summary>
+        /// Genera la poblacion inicial de bombermans 
+        /// </summary>
         public void generarPoblacion(){ 
             for (int i = 0; i < 7; i++) {
                 Bomberman player = new Bomberman($"P{i}");
@@ -21,22 +27,31 @@ namespace Example {
             posicionBest = 0;
             BestIndividuo = people.getData(0);
         }
-
+        /// <summary>
+        /// Detecta si no hay mejoras en la poblacion 
+        /// </summary>
         private bool sinMejora() {
             Bomberman temp;
             for (int j = 0; j < people.cont; j++) {
                 temp = people.getData(j);
-                if (fitness(temp) != 0)
-                {
+                if (fitness(temp) != 0){
                     return false;
                 }
             }
             return true;
         }
+        /// <summary>
+        /// Genera un promedio entre los "hitsPlayer" y "closehit"
+        /// </summary>
+        /// <returns>Regresa un int, que es el rendimiento del personaje</returns>>
+        /// <param name="temp">Un bomberman</param>
         private int fitness(Bomberman temp) {
             int rendimiento = (temp.hitsPlayer + temp.closehit) / 2;
             return rendimiento;
         }
+        /// <summary>
+        /// Metodo que selecciona al mejor jugador
+        /// </summary>
         private void seleccion() {
             posicionBest = 0;
             BestIndividuo = people.getData(0);
@@ -53,7 +68,9 @@ namespace Example {
                 }
             }
         }
-
+        /// <summary>
+        /// Me cruza al mejor jugador con todos los jugadores restantes, para que sus estadisticas mejoren
+        /// </summary>
         private void Crossover() {
             //Todos los arrays son de 7 bits, pues es el numero maximo posible
             for (int i = 0; i < people.cont; i++) {
@@ -73,6 +90,9 @@ namespace Example {
                 }
             }
         }
+        /// <summary>
+        /// Me muta a toda la poblacion, para que sus estadisticas se alteren 
+        /// </summary>
         private void Multacion() {
             int probabilidad = rnd.Next(0, 100);
             if (10 >= probabilidad)
@@ -96,7 +116,9 @@ namespace Example {
                 }
             }
         }
-
+        /// <summary>
+        /// Me invierte a toda la poblacion, para que sus estadisticas se alteren 
+        /// </summary>
         private void Inversion()
         {
             int probabilidad = rnd.Next(0, 100);
@@ -123,18 +145,25 @@ namespace Example {
                 }
             }
         }
-
+        /// <summary>
+        /// Me ajusta las probabilidades de cada jugador para que de 100% 
+        /// </summary>
         private void Reajustar() {
             for (int i = 0; i < people.cont; i++) {
                 people.getData(i).reajustarAcciones();
             }
         }
+        /// <summary>
+        /// Me imprime las probabilidades de acciones para cada jugador 
+        /// </summary>
         public void printAccion(){
             for (int i = 0; i < people.cont; i++){//$"P{i}"
                 people.getData(i).printAccion();
             }
         }
-
+        /// <summary>
+        /// Me hace el proceso completo del AG; es decir, la seleccion,cruze,mutacion,inversion y reajuste 
+        /// </summary>
         public void AG(){
             seleccion();
             Crossover();
