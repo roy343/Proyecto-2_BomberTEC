@@ -42,9 +42,11 @@ Para solucionar esto presione sobre el proyecto, esto abrira una ventana emergen
 
 ![image](https://user-images.githubusercontent.com/28927252/101963231-d570a680-3bd3-11eb-9222-238699e3c42f.png)
 
-Se abrira una ventana donde le dara la opcion de instalar varios complementos de Unity y Visual Studio Comunity 2019, recomendable instalar Visual Studio ya que si se desea modificar el codigo este editor trae varias herramientas que facilitan el proceso. Para las demas opciones no es necesario instalar ninguna ya que no son necesarias para este proyecto:
+Se abrirá una ventana donde le dará la opción de instalar varios complementos de Unity y Visual Studio Comunity 2019, recomendable instalar Visual Studio ya que si se desea modificar el codigo este editor trae varias herramientas que facilitan el proceso. En caso de que ya tenga instalado visual estudio puede desmarcar dicha opcion. Para las demas opciones no es necesario instalar ninguna ya que no son necesarias para este proyecto. Presione "Install":
 
 ![image](https://user-images.githubusercontent.com/28927252/101963295-fb964680-3bd3-11eb-97af-3c0dfe6d96bc.png)
+
+La instalación puede tardar varios minutos.
 
 
 
