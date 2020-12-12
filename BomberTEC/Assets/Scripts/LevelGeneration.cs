@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEditor;
 
-
+/// <summary>
+/// Clase de generacion aleatoria de niveles
+/// </summary>
 public class LevelGeneration : MonoBehaviour //Se definen las probabilidades iniciales (esto define que tan poblado estara el mapa)
 {
     [Range(0, 100)]
@@ -33,8 +35,11 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
 
     int width;//Largo y ancho del mapa
     int height;
-
-    public void doSim(int numR)//Inicializa el mapa
+    /// <summary>
+    /// Dosim inicializa el mapa, se encarga de hacer la simulacion y asignar los tiles al mapa
+    /// </summary>
+    /// <param name="numR"></param>
+    public void doSim(int numR)
     {
         clearMap(false);
         width = tmapSize.x;
@@ -63,7 +68,11 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             }
         }
     }
-
+    /// <summary>
+    /// Modifica el terrainMap para la generacion de niveles mas organicos
+    /// </summary>
+    /// <param name="oldMap"></param>
+    /// <returns>terrainMap modificado</returns>
     public int[,] genTilePos(int[,] oldMap)// Este algoritmo modifica el terrainMap para darle una apariencia mas organica
     {
         int[,] newMap = new int[width, height];
@@ -107,6 +116,9 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
         }
         return newMap;
     }
+    /// <summary>
+    /// Le da a la matriz terrainMap 1 y 0 en sus posiciones
+    /// </summary>
     public void initPos()//Recorre terrainMap y le asigna un 1 o un 0 a cada posicion de la matriz
     {
         for(int x = 0; x < width; x++)
@@ -117,6 +129,9 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             }
         }
     }
+    /// <summary>
+    /// El mouse controla la generacion de niveles
+    /// </summary>
     void Update()
     {
         if (Input.GetMouseButtonDown(0))//Crea el mapa con click izquierdo
@@ -129,7 +144,10 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             clearMap(true);
         }
     }
-
+    /// <summary>
+    /// Borra el mapa
+    /// </summary>
+    /// <param name="complete"></param>
     public void clearMap(bool complete)//Funcion para borrar el mapa
     {
         topMap.ClearAllTiles();
