@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+    /// <summary>
+    /// Lista de objetos
+    /// </summary>
     public GameObject[] hearts;
+
+    /// <summary>
+    /// Entero que representa la vida de los jugadores
+    /// </summary>
     public int life;
 
-    // Update is called once per frame
+
+    /// <summary>
+    /// Funcion que se encarga de administrar la vida del jugador
+    /// </summary>
+    /// <returns>Elimina o agrega un valor a la lista de vidas</returns>
     void Update()
     {
         if (life < 1)

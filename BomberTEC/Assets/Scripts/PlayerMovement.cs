@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    /// <summary>
+    /// Define la velocidad del jugador
+    /// </summary>
     public float MovementSpeed = 5;
     private void Start()
     {
@@ -12,7 +14,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    /// <summary>
+    /// Funcion que se encarga del movimiento del jugador
+    /// </summary>
+    /// <returns>Cambia la posicion del jugador</returns>
     void Update()
     {
         var moveX = Input.GetAxis("Horizontal");
