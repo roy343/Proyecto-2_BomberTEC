@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\grero\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\grero\\.nuget\\packages"
+    ]
+  }
+}

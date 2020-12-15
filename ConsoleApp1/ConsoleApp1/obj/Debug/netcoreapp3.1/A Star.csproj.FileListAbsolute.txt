@@ -1,0 +1,12 @@
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.exe
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.deps.json
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.runtimeconfig.json
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.runtimeconfig.dev.json
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.dll
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp3.1\A Star.pdb
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.AssemblyInfoInputs.cache
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.AssemblyInfo.cs
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.csproj.CoreCompileInputs.cache
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.dll
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.pdb
+C:\Users\grero\source\repos\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp3.1\A Star.genruntimeconfig.cache
