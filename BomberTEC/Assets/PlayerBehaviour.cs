@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     public float health;
     public float MovementSpeed = 5;
@@ -14,6 +12,7 @@ public class Player : MonoBehaviour
     public void UpdateHealth()
     {
         healthText.text = health.ToString("0");
+
     }
 
     void Update()
