@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PowerUp
+  - Potion
+  - Shield
+  - Shoe
+  - XBomb
   layers:
   - Default
   - TransparentFX
