@@ -6,13 +6,12 @@ using UnityEngine.UI;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float health;
-    public float MovementSpeed = 5;
+    public float MovementSpeed;
     [SerializeField] private Text healthText;
 
     public void UpdateHealth()
     {
         healthText.text = health.ToString("0");
-
     }
 
     void Update()
@@ -38,6 +37,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.CompareTag("PowerUp"))
         {
             health -= 1;
+        } else if (collision.CompareTag("Potion"))
+        {
+            health += 1;
+        } else if (collision.CompareTag("Shoe"))
+        {
+            MovementSpeed += 3;
         }
     }
 }
