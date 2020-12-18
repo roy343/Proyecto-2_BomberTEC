@@ -50,12 +50,6 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             terrainMap = new int[width, height];
             initPos();//Llama al encargado de dar 1 y 0 a la matriz
         }
-
-        for(int i = 0; i < numR; i++)
-        {
-            terrainMap = genTilePos(terrainMap);// Algoritmo para generar mapas mas organicos
-        }
-
         for(int x = 0; x < width; x++)//Loop que recorre la matriz
         {
             for (int y = 0; y < height; y++)
@@ -69,54 +63,6 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
         }
     }
     /// <summary>
-    /// Modifica el terrainMap para la generacion de niveles mas organicos
-    /// </summary>
-    /// <param name="oldMap"></param>
-    /// <returns>terrainMap modificado</returns>
-    public int[,] genTilePos(int[,] oldMap)// Este algoritmo modifica el terrainMap para darle una apariencia mas organica
-    {
-        int[,] newMap = new int[width, height];
-        int neighb;
-        BoundsInt myB = new BoundsInt(-1, -1, 0, 3, 3, 1);
-
-        for(int x = 0; x < width; x++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                neighb = 0;
-                foreach(var b in myB.allPositionsWithin)
-                {
-                    if (b.x == 0 && b.y == 0) continue;
-                    if (x + b.x >= 0 && x+b.x < width && y+b.y >= 0 && y+b.y < height)
-                    {
-                        neighb += oldMap[x + b.x, y + b.y];
-                    }
-                    else
-                    {
-                        neighb++;
-                    }
-                }
-                if(oldMap[x,y] == 1)
-                {
-                    if (neighb < deathLimit) newMap[x, y] = 0;
-                    else
-                    {
-                        newMap[x, y] = 1;
-                    }
-                }
-                if (oldMap[x, y] == 0)
-                {
-                    if (neighb > deathLimit) newMap[x, y] = 1;
-                    else
-                    {
-                        newMap[x, y] = 0;
-                    }
-                }
-            }
-        }
-        return newMap;
-    }
-    /// <summary>
     /// Le da a la matriz terrainMap 1 y 0 en sus posiciones
     /// </summary>
     public void initPos()//Recorre terrainMap y le asigna un 1 o un 0 a cada posicion de la matriz
@@ -125,7 +71,18 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
         {
             for (int y = 0; y < height; y++)
             {
-                terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0; // Asigna los 1 y 0 de forma aleatoria
+                if(y == 0 || x == 0 || x == 19 || y == 9)
+                {
+                    terrainMap[x, y] = 1;
+                }
+                else if (x == 18 || x == 1 || x == 10 || y == 1 || y == 8 || y == 5)
+                {
+                    terrainMap[x, y] = 0;
+                }
+                else
+                {
+                    terrainMap[x, y] = Random.Range(1, 101) < iniChance ? 1 : 0; // Asigna los 1 y 0 de forma aleatoria
+                }
             }
         }
     }
