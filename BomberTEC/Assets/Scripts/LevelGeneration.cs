@@ -30,6 +30,11 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
     public Tilemap topMap;//Tilemaps del piso y las paredes
     public Tilemap botMap;
 
+    public GameObject XBomb;
+    public GameObject Shoes;
+    public GameObject Potion;
+    public GameObject Shield;
+
     public Tile topTile;
     public Tile destructibleTile;
     public Tile botTile;
@@ -86,6 +91,13 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                 {
                     topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), destructibleTile);
                 }
+                /*else if(terrainMap[x,y] == 0)
+                {
+                    Vector3Int position = new Vector3Int(-x + 1 + width / 2, -y + height / 2, 0);
+                    Vector3Int cell = topMap.WorldToCell(position);
+                    Vector3 center = topMap.GetCellCenterWorld(cell);
+                    Instantiate(XBomb, center, Quaternion.identity);
+                }*/
             }
         }
     }
