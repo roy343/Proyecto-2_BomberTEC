@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
+using EStar;
 public class EnemyScript : MonoBehaviour
 {
     /// <summary>
@@ -20,14 +18,15 @@ public class EnemyScript : MonoBehaviour
     /// Defina el radio de la explosion que deje
     /// </summary>
     public float explosionRadius;
+    private A_star movi;
 
     public string pID;
     public int hide;
     public int putBomb;
     public int findEnemy;
     public int findPowerUp;
-
     public Admi Administrador;
+
     /// <summary>
     /// Metodo que me regresa una accion por estadistica
     /// </summary>
@@ -47,32 +46,35 @@ public class EnemyScript : MonoBehaviour
             return 4;
         }
     }
+
+    private void Awake()
+    {
+        //movi = new A_Star();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
     private float nextActionTime = 0.0f;
-    public float period = 5f;
+    public float period = 10f;
     // Update is called once per frame
     void Update() { 
         if (Time.time > nextActionTime)
         {
             nextActionTime = Time.time + period;
             int accion = getAccion();
-            if (accion == 1)
-            {
-                Debug.Log("Hide");
+            if (accion == 1){
+                //Debug.Log("Hide");
             }
-            else if (accion == 2)
-            {
-                Debug.Log("Find power up");
+            else if (accion == 2){
+                //Debug.Log("Find power up");
             }
-            else if (accion == 2)
-            {
-                Debug.Log("Find Enemy");
+            else if (accion == 2){
+                //Debug.Log("Find Enemy");
             }else {
-                Debug.Log("Put Bomb");
+                //Debug.Log("Put Bomb");
             }
             // execute block of code here/ 
         }

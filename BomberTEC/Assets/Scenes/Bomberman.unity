@@ -212,7 +212,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &184742661
 SpriteRenderer:
@@ -975,7 +975,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &916314938
 SpriteRenderer:
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &1046786686
 SpriteRenderer:
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &1183409468
 SpriteRenderer:
@@ -1608,7 +1608,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &1427033707
 SpriteRenderer:
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &1454847845
 SpriteRenderer:
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
-  Administrador: {fileID: 0}
+  Administrador: {fileID: 485069167}
   period: 5
 --- !u!212 &1607298477
 SpriteRenderer:
@@ -2478,7 +2478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.4, y: -42.199997}
+  m_AnchoredPosition: {x: 84.399994, y: -42.199997}
   m_SizeDelta: {x: 168.81128, y: 84.463264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072180960

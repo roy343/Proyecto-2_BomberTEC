@@ -20,6 +20,7 @@ public class Admi : MonoBehaviour
         for (int i = 0; i < foo.people.cont; i++)
         {
             Bomberman temp = foo.people.getData(i);
+            PeopleEnemy.getData(i).pID = temp.pID;
             PeopleEnemy.getData(i).hide = temp.getHide();
             PeopleEnemy.getData(i).putBomb = temp.getPutBomb();
             PeopleEnemy.getData(i).findEnemy = temp.getFindEnemy();
@@ -46,8 +47,14 @@ public class Admi : MonoBehaviour
         MeterDatos();
     }
     // Update is called once per frame
-    void Update()
-    {
-
+    private float nextActionTime = 0.0f;
+    public float period = 15f;
+    void Update(){
+        if (Time.time > nextActionTime){
+            nextActionTime = Time.time + period;
+            Debug.Log("Recalculando");
+            foo.AG();
+            MeterDatos();
+        }
     }
 }
