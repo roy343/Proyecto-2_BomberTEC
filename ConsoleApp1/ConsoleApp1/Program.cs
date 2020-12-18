@@ -8,20 +8,36 @@ namespace A_Star
     {
         static void initPos(int[,] terrainMap)//Recorre terrainMap y le asigna un 1 o un 0 a cada posicion de la matriz
         {
-            for (int x = 0; x < 8; x++)
+            for (int x = 0; x < 20; x++)
             {
-                for (int y = 0; y < 8; y++)
+                for (int y = 0; y < 10; y++)
                 {
-                    terrainMap[x, y] = new Random().Next(2) < 1 ? 1 : 0; // Asigna los 1 y 0 de forma aleatoria
+                    if (y == 0 || x == 0 || x == 19 || y == 9)
+                    {
+                        terrainMap[x, y] = 1;
+                    }
+                    else if (x == 18 || x == 1 || x == 10 || y == 1 || y == 8 || y == 5)
+                    {
+                        terrainMap[x, y] = 0;
+                    }
+                    else
+                    {
+                        terrainMap[x, y] = new Random().Next(2) < 1 ? 1 : 0; // Asigna los 1 y 0 de forma aleatoria
+                    }
                 }
+            }
+            Backtraking back = new Backtraking();
+            if(back.init(terrainMap) == false)
+            {
+                initPos(terrainMap);
             }
         }
         static void print_map(int[,] terrainMap)//Recorre terrainMap y le asigna un 1 o un 0 a cada posicion de la matriz
         {
-            for (int x = 0; x < 8; x++)
+            for (int x = 0; x < 20; x++)
             {
                 Console.Write("[");
-                for (int y = 0; y < 8; y++)
+                for (int y = 0; y < 10; y++)
                 {
                     Console.Write(terrainMap[x,y]);
                     Console.Write(" , ");
@@ -43,7 +59,7 @@ namespace A_Star
             for(int i=0; i< possibleTiles.Count; i++)
             {
                 Tile pos = possibleTiles[i];
-                if (pos.X < 0 || pos.Y < 0 || pos.X > 7 || pos.Y > 7 || terrainMap[pos.Y, pos.X] != 0)
+                if (pos.X < 0 || pos.Y < 0 || pos.X > 19 || pos.Y > 9 || terrainMap[pos.Y, pos.X] != 0)
                 {
                     possibleTiles.Remove(pos);
                     i--;
@@ -137,10 +153,11 @@ namespace A_Star
         static void Main(string[] args)
         {
             int[,] terrainMap;
-            terrainMap = new int[8, 8];
+            terrainMap = new int[20, 10];
             initPos(terrainMap);
             print_map(terrainMap);
-            a_star(terrainMap,0,0,7,7);
+            //a_star(terrainMap,0,0,7,7);
+
         }
     }
 }
@@ -159,5 +176,120 @@ class Tile
     public void SetDistance(int targetX, int targetY)
     {
         this.Distance = Math.Abs(targetX - X) + Math.Abs(targetY - Y);
+    }
+}
+
+class Node
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+    public string status { get; set; }
+    public Node Parent { get; set; }
+    public List<Node> sons { get; set; }
+    public void have_sons(int[,] terrainMap)
+    {
+        this.sons = new List<Node>();
+        Node pos;
+        this.status = "No";
+        if (terrainMap[this.X + 1,this.Y] == 0)
+        {
+            pos = new Node();
+            pos.X = this.X + 1;
+            pos.Y = this.Y;
+            pos.Parent = this;
+            this.sons.Add(pos);
+        }
+        if (terrainMap[this.X - 1, this.Y] == 0)
+        {
+            pos = new Node();
+            pos.X = this.X - 1;
+            pos.Y = this.Y;
+            pos.Parent = this;
+            this.sons.Add(pos);
+        }
+        if (terrainMap[this.X, this.Y + 1] == 0)
+        {
+            pos = new Node();
+            pos.X = this.X;
+            pos.Y = this.Y + 1;
+            pos.Parent = this;
+            this.sons.Add(pos);
+        }
+        if (terrainMap[this.X, this.Y - 1] == 0)
+        {
+            pos = new Node();
+            pos.X = this.X;
+            pos.Y = this.Y - 1;
+            pos.Parent = this;
+            this.sons.Add(pos);
+        }
+    }
+}
+
+class Backtraking
+{
+    public int Nodes { get; set; }
+    public int Visited { get; set; }
+    public Node[,] matrix { get; set; }
+    public bool init(int[,] terrainMap)
+    {
+        this.matrix = new Node[20,10];
+        for (int x = 0; x < 20; x++)
+        {
+            for (int y = 0; y < 10; y++)
+            {
+                if (terrainMap[x, y] == 0) {
+                    this.matrix[x, y] = new Node();
+                    this.matrix[x, y].X = x;
+                    this.matrix[x, y].Y = y;
+                    this.matrix[x, y].have_sons(terrainMap);
+                    this.Nodes++;
+                }
+            }
+        }
+        Node current = new Node();
+        Node aux = new Node();
+        current.X = 1;
+        current.Y = 1;
+        while (true)
+        {
+            Console.WriteLine("Node: " + current.X + ", " + current.Y);
+            if (this.matrix[current.X,current.Y].Parent == null && this.matrix[current.X, current.Y].sons.Count == 0)
+            {
+                this.Visited++;
+                if (this.Nodes == this.Visited)
+                {
+                    Console.WriteLine("True");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Nodes: " + this.Nodes);
+                    Console.WriteLine("Visited: " + this.Visited);
+                    Console.WriteLine("False");
+                    return false;
+                }
+            }
+            if(this.matrix[current.X, current.Y].sons.Count == 0)
+            {
+                this.matrix[current.X, current.Y].status = "Yes";
+                current = this.matrix[current.X, current.Y].Parent;
+            }
+            else
+            {
+                if (this.matrix[this.matrix[current.X, current.Y].sons.First().X, this.matrix[current.X, current.Y].sons.First().Y].status == "No") {
+                    this.matrix[current.X, current.Y].status = "Yes";
+                    aux = this.matrix[current.X, current.Y].sons.First();
+                    this.matrix[aux.X, aux.Y].Parent = current;
+                    this.matrix[current.X, current.Y].sons.RemoveAt(0);
+                    current = aux;
+                    this.Visited++;
+                }
+                else
+                {
+                    this.matrix[current.X, current.Y].sons.RemoveAt(0);
+                }
+            }
+        }
     }
 }
