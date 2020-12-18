@@ -31,6 +31,7 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
     public Tilemap botMap;
 
     public Tile topTile;
+    public Tile destructibleTile;
     public Tile botTile;
 
     int width;//Largo y ancho del mapa
@@ -50,14 +51,40 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             terrainMap = new int[width, height];
             initPos();//Llama al encargado de dar 1 y 0 a la matriz
         }
+        if(terrainMap != null)
+        {
+            for (int x = 0; x < width; x++)//Loop que recorre la matriz
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    if (terrainMap[x, y] == 0)
+                    {
+                        terrainMap[x, y] = Random.Range(1, 200) < iniChance ? 2 : 0;
+                    }
+                }
+            }
+            terrainMap[18,1] = 0;
+            terrainMap[18, 5] = 0;
+            terrainMap[18, 8] = 0;
+            terrainMap[10, 1] = 0;
+            terrainMap[10, 5] = 0;
+            terrainMap[10, 8] = 0;
+            terrainMap[1, 1] = 0;
+            terrainMap[1, 5] = 0;
+            terrainMap[1, 8] = 0;
+        }
         for(int x = 0; x < width; x++)//Loop que recorre la matriz
         {
             for (int y = 0; y < height; y++)
             {
-                if(terrainMap[x,y] == 1)
+                if (terrainMap[x, y] == 1)
                 {
                     topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);//Le da tiles al mapa
                     botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
+                }
+                else if (terrainMap[x, y] == 2)
+                {
+                    topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), destructibleTile);
                 }
             }
         }
@@ -86,16 +113,19 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             }
         }
     }
+    private void Start()
+    {
+        doSim(numR);
+    }
     /// <summary>
     /// El mouse controla la generacion de niveles
     /// </summary>
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))//Crea el mapa con click izquierdo
+        if (Input.GetMouseButtonDown(0))//Lo destruye con click derecho
         {
             doSim(numR);
         }
-
         if (Input.GetMouseButtonDown(1))//Lo destruye con click derecho
         {
             clearMap(true);
