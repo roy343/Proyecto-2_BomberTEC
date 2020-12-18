@@ -207,6 +207,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &184742661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -270,7 +277,7 @@ Transform:
   m_LocalScale: {x: 4.7573447, y: 4.344686, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208868155
 GameObject:
@@ -531,7 +538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411974278
 GameObject:
@@ -597,8 +604,58 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &485069165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485069166}
+  - component: {fileID: 485069167}
+  m_Layer: 0
+  m_Name: Administrador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485069166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485069165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485069167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485069165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c62e04564902341a8017e416a8d126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy0: {fileID: 1427033706}
+  enemy1: {fileID: 1454847844}
+  enemy2: {fileID: 1046786685}
+  enemy3: {fileID: 1607298476}
+  enemy4: {fileID: 184742660}
+  enemy5: {fileID: 916314937}
+  enemy6: {fileID: 1183409467}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +970,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &916314938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -976,7 +1040,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007748740
 GameObject:
@@ -1144,6 +1208,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &1046786686
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1207,7 +1278,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1183409464
 GameObject:
@@ -1295,6 +1366,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &1183409468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1358,7 +1436,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1395885268
 PrefabInstance:
@@ -1405,7 +1483,7 @@ PrefabInstance:
     - target: {fileID: 4628110556864896343, guid: 53eb8e570a16f6c4db3d59c254880376,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4628110556864896343, guid: 53eb8e570a16f6c4db3d59c254880376,
         type: 3}
@@ -1525,6 +1603,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &1427033707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1588,7 +1673,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454847841
 GameObject:
@@ -1676,6 +1761,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &1454847845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1739,7 +1831,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1607298473
 GameObject:
@@ -1827,6 +1919,13 @@ MonoBehaviour:
   maxLife: 0
   evade: 0
   explosionRadius: 0
+  pID: 
+  hide: 0
+  putBomb: 0
+  findEnemy: 0
+  findPowerUp: 0
+  Administrador: {fileID: 0}
+  period: 5
 --- !u!212 &1607298477
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1890,7 +1989,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614957736
 GameObject:
@@ -1935,7 +2034,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701279584
 GameObject:
@@ -2030,7 +2129,7 @@ RectTransform:
   - {fileID: 2072180959}
   - {fileID: 1007748741}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2147,7 +2246,7 @@ Transform:
   m_LocalScale: {x: 0.168876, y: 0.16635096, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1822406080
 GameObject:
@@ -2192,7 +2291,7 @@ Transform:
   - {fileID: 803991447}
   - {fileID: 208868156}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1970236074
 GameObject:
@@ -2298,7 +2397,7 @@ Transform:
   m_LocalScale: {x: 4.541726, y: 4.0356355, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1970236079
 PolygonCollider2D:
@@ -2473,7 +2572,7 @@ PrefabInstance:
     - target: {fileID: 25052681059056066, guid: 90a40b614ecd22b43a5093ca7a6f879b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 25052681059056066, guid: 90a40b614ecd22b43a5093ca7a6f879b,
         type: 3}
