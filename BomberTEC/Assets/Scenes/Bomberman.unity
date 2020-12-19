@@ -214,8 +214,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -989,8 +988,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -1233,8 +1231,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -1298,8 +1295,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046786682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.52, y: 4.52, z: 0}
-  m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
+  m_LocalPosition: {x: -7.544, y: 4.496, z: 0}
+  m_LocalScale: {x: 4.2384534, y: 4.0034475, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1397,8 +1394,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -1561,8 +1557,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -1725,8 +1720,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
@@ -1889,8 +1883,7 @@ MonoBehaviour:
   findPowerUp: 0
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
-  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
-    type: 3}
+  expPrefab: {fileID: 0}
   tilemap: {fileID: 208868161}
   Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
