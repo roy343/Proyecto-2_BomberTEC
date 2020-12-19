@@ -50,13 +50,15 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
         clearMap(false);
         width = tmapSize.x;
         height = tmapSize.y;
+        int counter = 0;
         
         if (terrainMap == null)//Crea una nueva matriz para el mapa
         {
             terrainMap = new int[width, height];
             initPos();//Llama al encargado de dar 1 y 0 a la matriz
         }
-        if(terrainMap != null)
+
+        if (terrainMap != null)
         {
             for (int x = 0; x < width; x++)//Loop que recorre la matriz
             {
@@ -68,15 +70,72 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                     }
                 }
             }
-            terrainMap[18,1] = 0;
-            terrainMap[18, 5] = 0;
-            terrainMap[18, 8] = 0;
-            terrainMap[10, 1] = 0;
-            terrainMap[10, 5] = 0;
-            terrainMap[10, 8] = 0;
-            terrainMap[1, 1] = 0;
-            terrainMap[1, 5] = 0;
-            terrainMap[1, 8] = 0;
+
+            terrainMap[18, 1] = 5;
+            terrainMap[18, 5] = 5;
+            terrainMap[18, 8] = 5;
+            terrainMap[10, 1] = 5;
+            terrainMap[10, 5] = 5;
+            terrainMap[10, 8] = 5;
+            terrainMap[1, 1] = 5;
+            terrainMap[1, 5] = 5;
+            terrainMap[1, 8] = 5;
+
+            while (counter != 8)
+            {
+                if (counter < 2)
+                {
+                    int j = Random.Range(1, 18);
+                    int k = Random.Range(1, 9);
+                    if (terrainMap[j, k] == 0)
+                    {
+                        Vector3Int position = new Vector3Int(-j + 1 + width / 2, -k + height / 2, 0);
+                        Vector3Int cell = topMap.WorldToCell(position);
+                        Vector3 center = topMap.GetCellCenterWorld(cell);
+                        Instantiate(XBomb, center, Quaternion.identity);
+                        counter++;
+                    }
+                }
+                else if (counter < 4 && counter >= 2)
+                {
+                    int j = Random.Range(1, 18);
+                    int k = Random.Range(1, 9);
+                    if (terrainMap[j, k] == 0)
+                    {
+                        Vector3Int position = new Vector3Int(-j + 1 + width / 2, -k + height / 2, 0);
+                        Vector3Int cell = topMap.WorldToCell(position);
+                        Vector3 center = topMap.GetCellCenterWorld(cell);
+                        Instantiate(Shoes, center, Quaternion.identity);
+                        counter++;
+                    }
+                }
+                else if (counter < 6 && counter >= 4)
+                {
+                    int j = Random.Range(1, 18);
+                    int k = Random.Range(1, 9);
+                    if (terrainMap[j, k] == 0)
+                    {
+                        Vector3Int position = new Vector3Int(-j + 1 + width / 2, -k + height / 2, 0);
+                        Vector3Int cell = topMap.WorldToCell(position);
+                        Vector3 center = topMap.GetCellCenterWorld(cell);
+                        Instantiate(Potion, center, Quaternion.identity);
+                        counter++;
+                    }
+                }
+                else if (counter < 8 && counter >= 6)
+                {
+                    int j = Random.Range(1, 18);
+                    int k = Random.Range(1, 9);
+                    if (terrainMap[j, k] == 0)
+                    {
+                        Vector3Int position = new Vector3Int(-j + 1 + width / 2, -k + height / 2, 0);
+                        Vector3Int cell = topMap.WorldToCell(position);
+                        Vector3 center = topMap.GetCellCenterWorld(cell);
+                        Instantiate(Shield, center, Quaternion.identity);
+                        counter++;
+                    }
+                }
+            }
         }
         for(int x = 0; x < width; x++)//Loop que recorre la matriz
         {
