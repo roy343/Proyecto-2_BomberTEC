@@ -21,11 +21,7 @@ public class EnemyScript : MonoBehaviour
     /// Defina el radio de la explosion que deje 
     /// </summary> 
     public float explosionRadius;
-
-    private A_star movimiento;
     public string pID;
-    private int[,] terrainMap;
-
     public int hide;
     public int putBomb;
     public int findEnemy;
@@ -70,7 +66,7 @@ public class EnemyScript : MonoBehaviour
     /// /Pruebas 
     /// </summary> 
     [SerializeField] private Vector3 target= new Vector3(1, 1, 0);
-    [SerializeField] private float speed = 0.5f;
+    [SerializeField] private float speed = 5f;
     
     int accion;
     public bool primeravez;
@@ -83,8 +79,8 @@ public class EnemyScript : MonoBehaviour
         posix = GameObject.Find("Player").transform.position.x;
         posiy = GameObject.Find("Player").transform.position.y;
     }
-    public float period = 10;
-    public float seconds = 10;
+    public float period = 5;
+    public float seconds = 0;
     public float timer;
      
     void Update(){
@@ -101,14 +97,14 @@ public class EnemyScript : MonoBehaviour
             }
             else if (accion == 3)
             {
-                target.Set(1, 1, 0);
+                target.Set(9, 5, 0);
                 transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
             }
             else{
                 if (primeravez){
                     plantBomb();
                     primeravez = false;
-                }target.Set(1, 1, 0);
+                }target.Set(9, 5, 0);
                 transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
             }timer += Time.deltaTime;
         }
