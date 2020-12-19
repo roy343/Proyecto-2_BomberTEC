@@ -81,9 +81,9 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
             terrainMap[1, 5] = 5;
             terrainMap[1, 8] = 5;
 
-            while (counter != 8)
+            while (counter != 4)
             {
-                if (counter < 2)
+                if (counter < 1)
                 {
                     int j = Random.Range(1, 18);
                     int k = Random.Range(1, 9);
@@ -96,7 +96,7 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                         counter++;
                     }
                 }
-                else if (counter < 4 && counter >= 2)
+                else if (counter < 2 && counter >= 1)
                 {
                     int j = Random.Range(1, 18);
                     int k = Random.Range(1, 9);
@@ -109,7 +109,7 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                         counter++;
                     }
                 }
-                else if (counter < 6 && counter >= 4)
+                else if (counter < 3 && counter >= 2)
                 {
                     int j = Random.Range(1, 18);
                     int k = Random.Range(1, 9);
@@ -122,7 +122,7 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                         counter++;
                     }
                 }
-                else if (counter < 8 && counter >= 6)
+                else if (counter < 4 && counter >= 3)
                 {
                     int j = Random.Range(1, 18);
                     int k = Random.Range(1, 9);
@@ -150,13 +150,6 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
                 {
                     topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), destructibleTile);
                 }
-                /*else if(terrainMap[x,y] == 0)
-                {
-                    Vector3Int position = new Vector3Int(-x + 1 + width / 2, -y + height / 2, 0);
-                    Vector3Int cell = topMap.WorldToCell(position);
-                    Vector3 center = topMap.GetCellCenterWorld(cell);
-                    Instantiate(XBomb, center, Quaternion.identity);
-                }*/
             }
         }
     }
@@ -193,10 +186,6 @@ public class LevelGeneration : MonoBehaviour //Se definen las probabilidades ini
     /// </summary>
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))//Lo destruye con click derecho
-        {
-            doSim(numR);
-        }
         if (Input.GetMouseButtonDown(1))//Lo destruye con click derecho
         {
             clearMap(true);
