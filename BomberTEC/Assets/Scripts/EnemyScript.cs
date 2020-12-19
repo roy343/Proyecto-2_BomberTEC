@@ -1,22 +1,23 @@
 using UnityEngine;
 using EStar;
 using UnityEngine.Tilemaps;
-public class EnemyScript : MonoBehaviour{
-    /// <summary>
-    /// Float que define la velocidad del enemigo
-    /// </summary>
+public class EnemyScript : MonoBehaviour
+{
+    /// <summary> 
+    /// Float que define la velocidad del enemigo 
+    /// </summary> 
     public float moveSpeed = 5f;
-    /// <summary>
-    /// Floar que defina la vida maxima del enemigo
-    /// </summary>
+    /// <summary> 
+    /// Floar que defina la vida maxima del enemigo 
+    /// </summary> 
     public float maxLife;
-    /// <summary>
-    /// Float que define la probabilidad que el enemigo esquive una bomba
-    /// </summary>
+    /// <summary> 
+    /// Float que define la probabilidad que el enemigo esquive una bomba 
+    /// </summary> 
     public float evade;
-    /// <summary>
-    /// Defina el radio de la explosion que deje
-    /// </summary>
+    /// <summary> 
+    /// Defina el radio de la explosion que deje 
+    /// </summary> 
     public float explosionRadius;
 
     private A_star movimiento;
@@ -38,39 +39,44 @@ public class EnemyScript : MonoBehaviour{
 
 
 
-    /// <summary>
-    /// Metodo que me regresa una accion por estadistica
-    /// </summary>
-    /// <returns>Regresa: 1 hide, 2 find power up,3 find enemy y 4 put bomb  </returns>
+    /// <summary> 
+    /// Metodo que me regresa una accion por estadistica 
+    /// </summary> 
+    /// <returns>Regresa: 1 hide, 2 find power up,3 find enemy y 4 put bomb  </returns> 
     public int getAccion()
     {
         int probabilidad = Random.Range(0, 100);
-        if (probabilidad < hide){//1 Para hide
+        if (probabilidad < hide)
+        {//1 Para hide 
             return 1;
         }
-        else if (probabilidad < hide + findPowerUp){// 2 Para Find power up 
+        else if (probabilidad < hide + findPowerUp)
+        {// 2 Para Find power up  
             return 2;
         }
-        else if (probabilidad < hide + findPowerUp + findEnemy){// 3 Para find enemy
+        else if (probabilidad < hide + findPowerUp + findEnemy)
+        {// 3 Para find enemy 
             return 3;
         }
-        else{
-            return 4;//4 Para Put bomb
+        else
+        {
+            return 4;//4 Para Put bomb 
         }
     }
 
-    /// <summary>
-    /// /Pruebas
-    /// </summary>
+    /// <summary> 
+    /// /Pruebas 
+    /// </summary> 
 
-    // Start is called before the first frame update
-    void Start(){
-        movimiento = new A_star(); 
+    // Start is called before the first frame update 
+    void Start()
+    {
+        movimiento = new A_star();
         terrainMap = new int[20, 10];
     }
     private float nextActionTime = 0.0f;
     public float period = 10f;
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         death();
@@ -78,19 +84,26 @@ public class EnemyScript : MonoBehaviour{
         {
             nextActionTime = Time.time + period;
             int accion = getAccion();
-            if (accion == 1){
-                movimiento.Do_Astar(terrainMap,0,0,10,10);
-                //a_star(,)
-                //a_star(terrainMap, 0, 0, 7, 7);
-                //Debug.Log("Hide");
-            }else if (accion == 2){
-                //Debug.Log("Find power up");
-            }else if (accion == 2){
-                //Debug.Log("Find Enemy");
-            }else{
-                plantBomb();
-                 Administrador.foo.people.getDataID(pID).hitsPlayer++;
-                //Debug.Log("Put Bomb");
+            if (accion == 1)
+            {
+                //movimiento.Do_Astar(terrainMap, 0, 0, 10, 10);
+                //a_star(,) 
+                //a_star(terrainMap, 0, 0, 7, 7); 
+                //Debug.Log("Hide"); 
+            }
+            else if (accion == 2)
+            {
+                //Debug.Log("Find power up"); 
+            }
+            else if (accion == 2)
+            {
+                //Debug.Log("Find Enemy"); 
+            }
+            else
+            {
+                //plantBomb();
+                Administrador.foo.people.getDataID(pID).hitsPlayer++;
+                //Debug.Log("Put Bomb"); 
             }
         }
 
@@ -155,15 +168,15 @@ public class EnemyScript : MonoBehaviour{
 
     void plantBomb()
     {
-        
-            Debug.Log("The bomb has been planted");
-            Vector3 position = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
-            Vector3Int cell = tilemap.WorldToCell(position);
-            Vector3 center = tilemap.GetCellCenterWorld(cell);
+
+        Debug.Log("The bomb has been planted");
+        Vector3 position = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+        Vector3Int cell = tilemap.WorldToCell(position);
+        Vector3 center = tilemap.GetCellCenterWorld(cell);
 
 
-            Instantiate(Bomb, center, Quaternion.identity);
-        
+        Instantiate(Bomb, center, Quaternion.identity);
+
     }
     void death()
     {
