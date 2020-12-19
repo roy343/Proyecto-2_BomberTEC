@@ -113,6 +113,7 @@ public class EnemyScript : MonoBehaviour
             posiy = GameObject.Find("Player").transform.position.y;
             seconds = Time.time + period;
             accion = getAccion();
+            primeravez = true;
         }
     }
 
