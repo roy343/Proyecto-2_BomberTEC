@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using EStar;
 public class EnemyScript : MonoBehaviour{
     /// <summary>
@@ -17,10 +17,11 @@ public class EnemyScript : MonoBehaviour{
     /// Defina el radio de la explosion que deje
     /// </summary>
     public float explosionRadius;
-    private A_star movimiento;
 
+    private A_star movimiento;
     public string pID;
     private int[,] terrainMap;
+
     public int hide;
     public int putBomb;
     public int findEnemy;
@@ -49,11 +50,15 @@ public class EnemyScript : MonoBehaviour{
             return 4;//4 Para Put bomb
         }
     }
+
+    /// <summary>
+    /// /Pruebas
+    /// </summary>
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+        movimiento = new A_star(); 
         terrainMap = new int[20, 10];
-        //a_star(terrainMap, 0, 0, 7, 7);
     }
     private float nextActionTime = 0.0f;
     public float period = 10f;
@@ -65,18 +70,17 @@ public class EnemyScript : MonoBehaviour{
             nextActionTime = Time.time + period;
             int accion = getAccion();
             if (accion == 1){
+                movimiento.Do_Astar(terrainMap,0,0,10,10);
                 //a_star(,)
                 //a_star(terrainMap, 0, 0, 7, 7);
                 //Debug.Log("Hide");
-            }
-            else if (accion == 2){
+            }else if (accion == 2){
                 //Debug.Log("Find power up");
-            }
-            else if (accion == 2){
+            }else if (accion == 2){
                 //Debug.Log("Find Enemy");
-            }
-            else{
-                Administrador.foo.people.getDataID(pID).hitsPlayer++;
+            }else{
+
+                 Administrador.foo.people.getDataID(pID).hitsPlayer++;
                 //Debug.Log("Put Bomb");
             }
         }
