@@ -2121,6 +2121,7 @@ GameObject:
   - component: {fileID: 1970236075}
   - component: {fileID: 1970236079}
   - component: {fileID: 1970236080}
+  - component: {fileID: 1970236078}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2214,6 +2215,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970236078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970236074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22085bb36b2f9384f8549192dea7c142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1970236079
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2256,8 +2269,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb0d0e1f2b17de47ba54e099e06c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 208868161}
   health: 3
   MovementSpeed: 5
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
   healthText: {fileID: 1007748742}
 --- !u!1 &2072180958
 GameObject:

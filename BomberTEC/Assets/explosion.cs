@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombScrip : MonoBehaviour
+public class explosion : MonoBehaviour
 {
 
-    public float timer = 2f;
+    public float timer = 1f;
 
     // Update is called once per frame
     void Update()
@@ -14,8 +14,6 @@ public class BombScrip : MonoBehaviour
 
         if (timer <= 0)
         {
-            FindObjectOfType<PlayerBehaviour>().Explode(transform.position);
-            Debug.Log("BOOM!");
             Destroy(gameObject);
         }
     }

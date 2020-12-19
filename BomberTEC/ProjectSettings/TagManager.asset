@@ -9,6 +9,7 @@ TagManager:
   - Shield
   - Shoe
   - XBomb
+  - Explosion
   layers:
   - Default
   - TransparentFX
