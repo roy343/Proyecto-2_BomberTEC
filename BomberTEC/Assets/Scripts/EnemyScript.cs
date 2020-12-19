@@ -170,7 +170,7 @@ public class EnemyScript : MonoBehaviour
     {
 
         Debug.Log("The bomb has been planted");
-        Vector3 position = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+        Vector3 position = transform.position;
         Vector3Int cell = tilemap.WorldToCell(position);
         Vector3 center = tilemap.GetCellCenterWorld(cell);
 

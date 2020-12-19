@@ -282,7 +282,7 @@ Transform:
   m_LocalScale: {x: 4.7573447, y: 4.344686, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208868155
 GameObject:
@@ -548,7 +548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411974278
 GameObject:
@@ -614,7 +614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &423262583
 GameObject:
@@ -1056,7 +1056,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007748740
 GameObject:
@@ -1299,7 +1299,7 @@ Transform:
   m_LocalScale: {x: 4.2384534, y: 4.0034475, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1183409464
 GameObject:
@@ -1462,7 +1462,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427033703
 GameObject:
@@ -1625,7 +1625,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1454847841
 GameObject:
@@ -1788,7 +1788,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1607298473
 GameObject:
@@ -1951,52 +1951,7 @@ Transform:
   m_LocalScale: {x: 4.5222726, y: 4.244758, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1614957736
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1614957738}
-  - component: {fileID: 1614957737}
-  m_Layer: 0
-  m_Name: BombGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1614957737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614957736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6838e68cd7639314896c8554c77b7aff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 208868161}
-  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
---- !u!4 &1614957738
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614957736}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7503954, y: 1.2252758, z: -225.85156}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1701279584
 GameObject:
@@ -2091,7 +2046,7 @@ RectTransform:
   - {fileID: 2072180959}
   - {fileID: 1007748741}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2157,6 +2112,7 @@ GameObject:
   - component: {fileID: 1970236079}
   - component: {fileID: 1970236080}
   - component: {fileID: 1970236078}
+  - component: {fileID: 1970236081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2312,6 +2268,20 @@ MonoBehaviour:
     type: 3}
   tilemap: {fileID: 208868161}
   healthText: {fileID: 1007748742}
+--- !u!114 &1970236081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970236074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6838e68cd7639314896c8554c77b7aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
 --- !u!1 &2072180958
 GameObject:
   m_ObjectHideFlags: 0
