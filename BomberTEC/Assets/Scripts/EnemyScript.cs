@@ -67,46 +67,36 @@ public class EnemyScript : MonoBehaviour
     /// <summary> 
     /// /Pruebas 
     /// </summary> 
-
+    [SerializeField] private Vector3 target= new Vector3(1, 1, 0);
+    [SerializeField] private float speed = 0.5f;
     // Start is called before the first frame update 
-    void Start()
-    {
-        movimiento = new A_star();
-        terrainMap = new int[20, 10];
+    void Start(){
     }
-    private float nextActionTime = 0.0f;
-    public float period = 10f;
+    public float seconds = 10;
+    public float timer;
     // Update is called once per frame 
     void Update()
     {
         death();
-        if (Time.time > nextActionTime)
-        {
-            nextActionTime = Time.time + period;
+        if (timer <= seconds){
+            var posi = GameObject.Find("Player").transform.position;
+            timer += Time.deltaTime;
+            seconds = Time.time + seconds;
             int accion = getAccion();
-            if (accion == 1)
-            {
-                //movimiento.Do_Astar(terrainMap, 0, 0, 10, 10);
-                //a_star(,) 
-                //a_star(terrainMap, 0, 0, 7, 7); 
-                //Debug.Log("Hide"); 
-            }
-            else if (accion == 2)
-            {
-                //Debug.Log("Find power up"); 
-            }
-            else if (accion == 2)
-            {
-                //Debug.Log("Find Enemy"); 
-            }
-            else
-            {
-                //plantBomb();
+            if (accion == 1){
+                target.Set(0, 0, 0);
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            }else if (accion == 2){
+                target.Set(posi.x, posi.y, 0);
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            }else if (accion == 3){
+                //target.Set(12, 5, 0);//Aqui es para los power ups
+                target.Set(posi.x, posi.y, 0);
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            }else{
                 Administrador.foo.people.getDataID(pID).hitsPlayer++;
-                //Debug.Log("Put Bomb"); 
             }
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
