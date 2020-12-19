@@ -1,6 +1,8 @@
 using UnityEngine;
 using EStar;
 using UnityEngine.Tilemaps;
+using System.Collections;
+
 public class EnemyScript : MonoBehaviour
 {
     /// <summary> 
@@ -69,33 +71,52 @@ public class EnemyScript : MonoBehaviour
     /// </summary> 
     [SerializeField] private Vector3 target= new Vector3(1, 1, 0);
     [SerializeField] private float speed = 0.5f;
+    
+    int accion;
+    public bool primeravez;
+    float posix;
+    float posiy;
     // Start is called before the first frame update 
     void Start(){
+        accion= getAccion();
+        primeravez = true;
+        posix = GameObject.Find("Player").transform.position.x;
+        posiy = GameObject.Find("Player").transform.position.y;
     }
+    public float period = 10;
     public float seconds = 10;
     public float timer;
-    // Update is called once per frame 
-    void Update()
-    {
+     
+    void Update(){
         death();
-        if (timer <= seconds){
-            var posi = GameObject.Find("Player").transform.position;
-            timer += Time.deltaTime;
-            seconds = Time.time + seconds;
-            int accion = getAccion();
-            if (accion == 1){
+        if (timer <= seconds)
+        {
+            if (accion == 1)
+            {
                 target.Set(0, 0, 0);
                 transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
             }else if (accion == 2){
-                target.Set(posi.x, posi.y, 0);
+                target.Set(posix, posiy, 0);
                 transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-            }else if (accion == 3){
-                //target.Set(12, 5, 0);//Aqui es para los power ups
-                target.Set(posi.x, posi.y, 0);
-                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-            }else{
-                Administrador.foo.people.getDataID(pID).hitsPlayer++;
             }
+            else if (accion == 3)
+            {
+                target.Set(1, 1, 0);
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            }
+            else{
+                if (primeravez){
+                    plantBomb();
+                    primeravez = false;
+                }target.Set(1, 1, 0);
+                transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            }timer += Time.deltaTime;
+        }
+        else{
+            posix = GameObject.Find("Player").transform.position.x;
+            posiy = GameObject.Find("Player").transform.position.y;
+            seconds = Time.time + period;
+            accion = getAccion();
         }
     }
 
