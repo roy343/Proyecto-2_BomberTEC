@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxLife: 0
+  maxLife: 2
   evade: 0
   explosionRadius: 0
   pID: 
@@ -212,6 +212,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &184742661
@@ -973,7 +979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxLife: 0
+  maxLife: 3
   evade: 0
   explosionRadius: 0
   pID: 
@@ -981,6 +987,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &916314938
@@ -1082,7 +1094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 270.9, y: -42.231995}
+  m_AnchoredPosition: {x: 270.90002, y: -42.231995}
   m_SizeDelta: {x: 168.81128, y: 84.463264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1007748742
@@ -1211,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxLife: 0
+  maxLife: 4
   evade: 0
   explosionRadius: 0
   pID: 
@@ -1219,6 +1231,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &1046786686
@@ -1369,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxLife: 0
+  maxLife: 3
   evade: 0
   explosionRadius: 0
   pID: 
@@ -1377,6 +1395,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &1183409468
@@ -1527,7 +1551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  maxLife: 0
+  maxLife: 3
   evade: 0
   explosionRadius: 0
   pID: 
@@ -1535,6 +1559,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &1427033707
@@ -1685,7 +1715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  maxLife: 0
+  maxLife: 5
   evade: 0
   explosionRadius: 0
   pID: 
@@ -1693,6 +1723,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &1454847845
@@ -1843,7 +1879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  maxLife: 0
+  maxLife: 3
   evade: 0
   explosionRadius: 0
   pID: 
@@ -1851,6 +1887,12 @@ MonoBehaviour:
   putBomb: 0
   findEnemy: 0
   findPowerUp: 0
+  wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
+  barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
+  expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
+    type: 3}
+  tilemap: {fileID: 208868161}
+  Bomb: {fileID: 798327107125886146, guid: ff9312a102121024da437c4193927d2a, type: 3}
   Administrador: {fileID: 423262584}
   period: 10
 --- !u!212 &1607298477
@@ -2269,13 +2311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb0d0e1f2b17de47ba54e099e06c939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 208868161}
   health: 3
   MovementSpeed: 5
   wallTile: {fileID: 11400000, guid: 3e673cf7508329047a2f47b30a3e83fd, type: 2}
   barrel: {fileID: 11400000, guid: 9af7a320b4213a14286ab9f6105eb378, type: 2}
   expPrefab: {fileID: 5353351074927350010, guid: 304c79feac3f6bc48b64cf83d2fb5a83,
     type: 3}
+  tilemap: {fileID: 208868161}
   healthText: {fileID: 1007748742}
 --- !u!1 &2072180958
 GameObject:
@@ -2311,7 +2353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.399994, y: -42.199997}
+  m_AnchoredPosition: {x: 84.400024, y: -42.200012}
   m_SizeDelta: {x: 168.81128, y: 84.463264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072180960

@@ -1,5 +1,6 @@
 using UnityEngine;
 using EStar;
+using UnityEngine.Tilemaps;
 public class EnemyScript : MonoBehaviour{
     /// <summary>
     /// Float que define la velocidad del enemigo
@@ -26,9 +27,16 @@ public class EnemyScript : MonoBehaviour{
     public int putBomb;
     public int findEnemy;
     public int findPowerUp;
+    public Tile wallTile;
+    public Tile barrel;
+    public GameObject expPrefab;
+    public Tilemap tilemap;
+    public GameObject Bomb;
 
     [SerializeField]
     public Admi Administrador;
+
+
 
     /// <summary>
     /// Metodo que me regresa una accion por estadistica
@@ -65,6 +73,7 @@ public class EnemyScript : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
+        death();
         if (Time.time > nextActionTime)
         {
             nextActionTime = Time.time + period;
@@ -79,10 +88,88 @@ public class EnemyScript : MonoBehaviour{
             }else if (accion == 2){
                 //Debug.Log("Find Enemy");
             }else{
-
+                plantBomb();
                  Administrador.foo.people.getDataID(pID).hitsPlayer++;
                 //Debug.Log("Put Bomb");
             }
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Explosion") || maxLife > 1)
+        {
+            maxLife -= 1;
+        }
+        if (collision.CompareTag("Potion"))
+        {
+            maxLife += 1;
+        }
+        if (collision.CompareTag("Shoe"))
+        {
+            moveSpeed += 3;
+        }
+    }
+
+    public void Explode(Vector2 worldPos)
+    {
+        Vector3Int originCell = tilemap.WorldToCell(worldPos);
+
+        ExplodeCells(originCell);
+        if (ExplodeCells(originCell + new Vector3Int(1, 0, 0)))
+        {
+            ExplodeCells(originCell + new Vector3Int(2, 0, 0));
+        }
+        if (ExplodeCells(originCell + new Vector3Int(0, 1, 0)))
+        {
+            ExplodeCells(originCell + new Vector3Int(0, 2, 0));
+        }
+        if (ExplodeCells(originCell + new Vector3Int(-1, 0, 0)))
+        {
+            ExplodeCells(originCell + new Vector3Int(-2, 0, 0));
+        }
+        if (ExplodeCells(originCell + new Vector3Int(0, -1, 0)))
+        {
+            ExplodeCells(originCell + new Vector3Int(0, -2, 0));
+        }
+    }
+
+    bool ExplodeCells(Vector3Int cell)
+    {
+        Tile tile = tilemap.GetTile<Tile>(cell);
+
+        if (tile == wallTile)
+        {
+            return false;
+        }
+        if (tile == barrel)
+        {
+            tilemap.SetTile(cell, null);
+        }
+
+        Vector3 pos = tilemap.GetCellCenterWorld(cell);
+        Instantiate(expPrefab, pos, Quaternion.identity);
+        return true;
+    }
+
+    void plantBomb()
+    {
+        
+            Debug.Log("The bomb has been planted");
+            Vector3 position = GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
+            Vector3Int cell = tilemap.WorldToCell(position);
+            Vector3 center = tilemap.GetCellCenterWorld(cell);
+
+
+            Instantiate(Bomb, center, Quaternion.identity);
+        
+    }
+    void death()
+    {
+        if (maxLife <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

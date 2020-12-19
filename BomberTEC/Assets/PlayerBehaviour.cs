@@ -43,10 +43,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.CompareTag("Explosion") ||health > 1)
         {
             health -= 1;
-        } else if (collision.CompareTag("Potion"))
+        }
+        if (collision.CompareTag("Potion"))
         {
             health += 1;
-        } else if (collision.CompareTag("Shoe"))
+        }
+        if (collision.CompareTag("Shoe"))
         {
             MovementSpeed += 3;
         }
