@@ -34,11 +34,5 @@ public class Player : MonoBehaviour
         transform.position += new Vector3(moveX, moveY, 0) * Time.deltaTime * MovementSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("PowerUp"))
-        {
-            health -= 1;
-        }
-    }
+
 }

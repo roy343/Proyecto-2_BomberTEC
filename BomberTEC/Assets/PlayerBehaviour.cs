@@ -40,16 +40,29 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Explosion") ||health > 1)
+        if (collision.CompareTag("Explosion"))
         {
             health -= 1;
+            Debug.Log("Dano");
         }
         if (collision.CompareTag("Potion"))
         {
+            Debug.Log("Vida");
             health += 1;
         }
         if (collision.CompareTag("Shoe"))
         {
+            Debug.Log("Correr");
+            MovementSpeed += 3;
+        }
+        if (collision.CompareTag("Shield"))
+        {
+            Debug.Log("Shield");
+            
+        }
+        if (collision.CompareTag("XBomb"))
+        {
+            Debug.Log("Correr");
             MovementSpeed += 3;
         }
     }
